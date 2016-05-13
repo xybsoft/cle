@@ -423,10 +423,7 @@ class Backend(object):
                 if out is None or section.min_addr < out:
                     out = section.min_addr
 
-        if out is None:
-            return self.rebase_addr
-        else:
-            return out + self.rebase_addr
+        return out + self.rebase_addr
 
     def get_max_addr(self):
         """
@@ -443,10 +440,7 @@ class Backend(object):
                 if out is None or section.max_addr > out:
                     out = section.max_addr
 
-        if out is None:
-            return self.rebase_addr
-        else:
-            return out + self.rebase_addr
+        return out + self.rebase_addr
 
     def set_got_entry(self, symbol_name, newaddr):
         """
@@ -490,6 +484,7 @@ from .blob import Blob
 from .cgc import CGC
 from .backedcgc import BackedCGC
 from .metaelf import MetaELF
+from .mc7 import MC7
 
 ALL_BACKENDS = _ordered_dict((
     ('elf', ELF),
@@ -498,6 +493,8 @@ ALL_BACKENDS = _ordered_dict((
     ('cgc', CGC),
     ('backedcgc', BackedCGC),
     ('ida', IDABin),
-    ('blob', Blob)
+    ('blob', Blob),
+    # add support for mc7 code, edited by xybsoft
+    ('mc7', MC7)
 ))
 

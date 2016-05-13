@@ -5,7 +5,7 @@ import struct
 import elftools
 import claripy
 
-__all__ = ('Loader',)
+__all__ = ('Loader', )
 
 l = logging.getLogger("cle.loader")
 
@@ -303,6 +303,9 @@ class Loader(object):
             return 'mach-o'
         elif identstring.startswith('\x7fCGC'):
             return 'cgc'
+        # support simemens mc7 loader, edit by xybsoft
+        elif identstring.startswith('pp'):
+            return 'mc7'
         return 'unknown'
 
     def add_object(self, obj, base_addr=None):
