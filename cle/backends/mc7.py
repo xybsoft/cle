@@ -11,7 +11,7 @@ from ..errors import CLEError, CLEInvalidBinaryError, CLECompatibilityError
 
 __all__ = ('MC7', )
 
-PlcLanguages = {1:'AWL', 2:'LAD', 3:'FUP', 4:'SCL', 5:'DB', 6:'GRAPH'}
+PlcLanguages = {1:'STL', 2:'LAD', 3:'FUP', 4:'SCL', 5:'DB', 6:'GRAPH'}
 
 PlcBlockType = {    \
     0x08:'OB', \
